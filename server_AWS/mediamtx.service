@@ -1,0 +1,15 @@
+[Unit]
+Description=MediaMTX Streaming Server
+After=network.target
+
+[Service]
+ExecStart=/home/ubuntu/mediamtx
+WorkingDirectory=/home/ubuntu
+Restart=always
+RestartSec=5
+User=ubuntu
+Environment=PATH=/usr/bin:/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
+
