@@ -16,7 +16,7 @@ FRAME_WIDTH = 320
 FRAME_HEIGHT = 240
 FRAME_RATE = 15               # keep it low for PI Zero
 
-SERVER_IP = "13.201.69.29"
+SERVER_IP = "13.201.69.29"   #  OR Dynamic DNS-> SERVER_IP = "yadiec2.freedynamicdns.net"
 SERVER_PORT = "8889"
 MediaMTX_ENDPOINT = "cam1"
 

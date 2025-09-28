@@ -1,0 +1,22 @@
+#!/bin/bash
+
+export DEBIAN_FRONTEND=noninteractive
+
+sudo apt update
+sudo apt upgrade -y
+
+# essential build deps
+sudo apt install -y build-essential pkg-config git python3-dev python3-pip \
+ libssl-dev libffi-dev libasound2-dev libpulse-dev libvpx-dev libopus-dev \
+ libsrtp2-dev ffmpeg libavformat-dev libavcodec-dev libavdevice-dev \
+ libavfilter-dev libavutil-dev libswscale-dev
+
+# OpenCV (apt package for ARMv6) and ffmpeg
+sudo apt install -y python3-opencv ffmpeg
+
+python3 -m pip install av==10.0.0
+
+python3 -m pip install --upgrade pip setuptools wheel
+
+# More specific versions that are known to work on Pi Zero
+python3 -m pip install "aiohttp==3.8.4" "aiortc==1.5.0"
