@@ -11,8 +11,8 @@ sudo apt install -y build-essential pkg-config git python3-dev python3-pip \
  libsrtp2-dev ffmpeg libavformat-dev libavcodec-dev libavdevice-dev \
  libavfilter-dev libavutil-dev libswscale-dev
 
-# OpenCV (apt package for ARMv6) and ffmpeg
-sudo apt install -y python3-opencv ffmpeg
+# OpenCV (apt package for ARMv6) 
+sudo apt install -y python3-opencv 
 
 python3 -m pip install av==10.0.0
 
