@@ -31,8 +31,11 @@ This project consists of two main components: the `publisher` and the `server`. 
 First, clone the repository to both your Raspberry Pi and your AWS server instance:
 
 ```bash
+sudo apt-get install git
 git clone https://github.com/Priyanshu-choudhary/Internet_based_camera.git
-cd Internet_based_camera
+cd Internet_based_camera/publisher_raspberrypi
+sudo install_requirments_pi_zero.sh
+
 ```
 
 ### 2. setup Publisher (Raspberry Pi Zero) Setup
