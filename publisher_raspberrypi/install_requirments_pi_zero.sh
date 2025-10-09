@@ -9,7 +9,8 @@ sudo apt upgrade -y
 sudo apt install -y build-essential pkg-config git python3-dev python3-pip \
  libssl-dev libffi-dev libasound2-dev libpulse-dev libvpx-dev libopus-dev \
  libsrtp2-dev ffmpeg libavformat-dev libavcodec-dev libavdevice-dev \
- libavfilter-dev libavutil-dev libswscale-dev
+ libavfilter-dev libavutil-dev libswscale-dev \
+ python3-picamera2 python3-libcamera python3-kms++ python3-pyqt5 python3-prctl
 
 # OpenCV (apt package for ARMv6) 
 sudo apt install -y python3-opencv 
