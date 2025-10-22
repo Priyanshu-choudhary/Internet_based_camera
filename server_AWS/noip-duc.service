@@ -1,0 +1,15 @@
+[Unit]
+Description=No-IP DUC Client
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=noip-duc -g all.ddnskey.com --username 1wpfkwq --password 4yTSYshonLgK
+Restart=on-failure
+User=ubuntu
+Environment=HOME=/home/ubuntu
+
+[Install]
+WantedBy=multi-user.target
+
