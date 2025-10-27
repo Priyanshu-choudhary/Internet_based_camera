@@ -19,4 +19,5 @@ python3 -m pip install --upgrade pip setuptools wheel --break-system-packages
 
 # Install with --break-system-packages (NOT RECOMMENDED)
 python3 -m pip install --break-system-packages av==10.0.0
-python3 -m pip install --break-system-packages "aiohttp==3.8.4" "aiortc==1.5.0"
+python3 -m pip install --break-system-packages "aiohttp==3.8.4" 
+python3 -m pip install --break-system-packages  aiortc
