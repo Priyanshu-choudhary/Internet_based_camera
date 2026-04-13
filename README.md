@@ -104,6 +104,81 @@ python MediaMTX_pi_zero_publisher_webRTC.py
 ```
 
 The Raspberry Pi camera will start capturing video and sending it to the configured AWS server.
+### 2. Run this code as systemd services
+
+✅ start this Python script at boot
+✅ restart it automatically on crash or error
+✅ log output to journald (so you can check logs anytime)
+✅ run it with high CPU scheduling priority (-20)
+
+🧰 Step 1: Create a systemd service file
+```bash
+sudo nano /etc/systemd/system/mediastream.service
+```
+past this.
+```bash
+[Unit]
+Description=Raspberry Pi Media Stream Publisher (WebRTC)
+After=network.target
+
+[Service]
+# Full path to Python and script
+ExecStart=/usr/bin/python3 /home/zero1/Internet_based_camera/publisher/MediaMTX_pi_3_publisher_webRTC.py
+
+# Working directory
+WorkingDirectory=/home/zero1/Internet_based_camera/publisher
+
+# Restart automatically if crashes
+Restart=always
+RestartSec=5
+
+# Redirect stdout/stderr to systemd journal
+StandardOutput=append:/var/log/mediastream.log
+StandardError=append:/var/log/mediastream_error.log
+
+# Run as the 'pi' user
+User=zero1
+Group=zero1
+
+# Highest CPU priority (nice value -20 = highest)
+Nice=-20
+
+# Optional: limit restarts to prevent loops
+#StartLimitIntervalSec=60
+#StartLimitBurst=5
+
+# Optional: environment variables (uncomment if needed)
+# Environment="PYTHONUNBUFFERED=1"
+
+#logging
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+```
+
+🔄 Step 3: Reload, enable, and start the service
+
+```bash
+#Then create the log files manually first:
+sudo touch /var/log/mediastream.log /var/log/mediastream_error.log
+sudo chown zero1:zero1 /var/log/mediastream*.log
+
+sudo systemctl daemon-reload
+sudo systemctl enable mediastream.service
+sudo systemctl start mediastream.service
+
+```
+
+🧾 Step 4: Check your logs
+```bash
+sudo systemctl status mediastream.service
+cat /var/log/mediastream.log
+cat /var/log/mediastream_error.log
+tail -f /var/log/mediastream.log
+sudo journalctl -u mediastream.service -f
+```
 
 ### 3. Consume the Stream (Client)
 

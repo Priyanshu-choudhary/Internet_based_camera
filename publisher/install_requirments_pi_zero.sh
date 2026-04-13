@@ -15,8 +15,9 @@ sudo apt install -y build-essential pkg-config git python3-dev python3-pip \
 # OpenCV (apt package for ARMv6) 
 sudo apt install -y python3-opencv 
 
-python3 -m pip install --upgrade pip setuptools wheel
+python3 -m pip install --upgrade pip setuptools wheel --break-system-packages
 
 # Install with --break-system-packages (NOT RECOMMENDED)
 python3 -m pip install --break-system-packages av==10.0.0
-python3 -m pip install --break-system-packages "aiohttp==3.8.4" "aiortc==1.5.0"
+python3 -m pip install --break-system-packages "aiohttp==3.8.4" 
+python3 -m pip install --break-system-packages  aiortc
